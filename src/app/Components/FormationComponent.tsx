@@ -6,7 +6,7 @@ import { useState } from 'react';
 import { Arrow } from './CustomArrows'
 import { ToolTip } from './CustomToolTip';
 import { FaHtml5, FaCss3, FaBootstrap, FaSass, FaReact, FaExternalLinkAlt } from "react-icons/fa";
-import { SiJavascript, SiRedux, SiCsharp, SiDotnet } from "react-icons/si";
+import { SiJavascript, SiRedux, SiCsharp, SiDotnet, SiDocker } from "react-icons/si";
 
 interface IFormationComponent {
   id?: string
@@ -83,6 +83,18 @@ const FormationComponent = (props: IFormationComponent) => {
       optimo de las aplicaciones...
       `,
       url: 'https://www.freecodecamp.org/certification/ALFONSO_JESUS_KAN_SILVEIRA/foundational-c-sharp-with-microsoft'
+    },
+    {
+      key: 5,
+      title: 'Curso de Docker, Completo desde 0 a Experto',
+      img: '/images/docker-certificate.png',
+      tech: [
+        {icon: <SiDocker />, name: 'Docker', position: 'bottom'}
+      ],
+      description: `
+      Adquiri conocimientos fundamentales y practicos en Docker y Docker Compose para la creacion, administracion y despliegue de contenedores. Aprendi desde la instalacion y configuracion inicial, el manejo de imagenes, redes, volumenes y variables de entorno, hasta la gestion de recursos, puertos y politicas de reinicio. Ademas, desarrolle habilidades para construir entornos multicontenedor con Docker Compose, conectar servicios, persistir informacion y desplegar soluciones como bases de datos, servidores web y aplicaciones, siguiendo buenas practicas de administracion y virtualizacion de entornos.
+      `,
+      url: 'https://www.udemy.com/certificate/UC-5bf2b7d0-43f3-4c1d-9350-a1cbedae05b6/'
     }
   ]
 
@@ -124,17 +136,17 @@ const FormationComponent = (props: IFormationComponent) => {
         FormationList.map((form, index) => (
           <div key={form.key} className={`flex justify-center items-center w-full ${index === currentIndex ? '' : 'hidden'}`}>
             <div className="w-3/4 p-6 bg-kang-gray-900 border-none rounded-lg">
-              <h5 className="mb-2 text-2xl font-semibold tracking-tight text-blue-600 font-kang-invasion">{form.title}</h5>
+              <h5 className="mb-2 text-2xl font-semibold tracking-tight dark:text-blue-600 text-blue-800 font-kang-invasion">{form.title}</h5>
               {/* tecos de las tecnologías */}
               <div className='flex flex-row py-2 dark:text-white text-kang-gray text-3xl justify-start'>{form.tech.map((tech, index) => (
-                <div key={index} className='hover:text-blue-600 p-0 border-none my-5 mx-2 sm:mx-4'>
+                <div key={index} className='dark:hover:text-blue-600 hover:text-blue-800 p-0 border-none my-5 mx-2 sm:mx-4'>
                   <ToolTip color='blue' content={tech.name} position={tech.position}>
                     {tech.icon}
                   </ToolTip>
                 </div>
               ))}</div>
               <p className="mb-3 font-normal dark:text-white text-kang-gray text-2xl md:text-4xl font-kang-pixels leading-7">{form.description}</p>
-              <a href={form.url} target='_blank' className="inline-flex font-medium items-center justify-around border-2 border-blue-600 py-1 px-2 text-blue-600 hover:bg-blue-600 rounded-xl hover:text-white">
+              <a href={form.url} target='_blank' className="inline-flex font-medium items-center justify-around border-2 dark:border-blue-600 border-blue-800 py-1 px-2 dark:text-blue-600 text-blue-800 dark:hover:bg-blue-600 hover:bg-blue-800 rounded-xl hover:text-white">
                 <p className=' font-kang-invasion text-xl mr-2'>Ver mas</p> <FaExternalLinkAlt />
               </a>
             </div>

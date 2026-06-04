@@ -3,17 +3,17 @@ import { useState, useEffect } from "react"
 import { MdWbSunny, MdDarkMode } from "react-icons/md"
 
 const DarkMode = () => {
-    const [darkMode, setDarkMode] = useState(true)
+    const [darkMode, setDarkMode] = useState(() => {
+        if (typeof window !== 'undefined') {
+            const theme = localStorage.getItem('theme');
+            return theme !== 'light';
+        }
+        return true;
+    })
 
     const toggleIcon = () => {
         setDarkMode(!darkMode)
     }
-
-    //#1 Corre cada que el componente se monta
-    useEffect(() => {
-        const theme = localStorage.getItem('theme');
-        if (theme === "dark") setDarkMode(true);
-    }, [])
 
     //# Se ejecuta dependinedo del state Cuando el DarkMode Cambie
     useEffect(() => {

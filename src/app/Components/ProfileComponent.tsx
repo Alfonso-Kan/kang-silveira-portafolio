@@ -28,11 +28,11 @@ const ProfileComponent = (props: INavBarComponentProps) => {
             <TypeAnimation
               sequence={[
                 // Same substring at the start will only be typed out once, initially
-                'soy Desarrollador entry-level...',
-                4000, // wait 1s before replacing "Mice" with "Hamsters"
+                'soy Desarrollador Full-Stack...',
+                4000,
                 'soy Desarrollador Frontend...',
                 4000,
-                'soy Estudiante Backend...',
+                'soy Desarrollador Backend...',
                 4000,
                 'soy Estudiante Autodidacta...',
                 4000

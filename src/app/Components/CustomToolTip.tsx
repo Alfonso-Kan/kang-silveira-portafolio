@@ -14,8 +14,8 @@ export const ToolTip = (props: IToolTip) => (
     <div id='tooltip' className='relative cursor-default group'>
         <div className="mx-2 my-1">{props.children}</div>
         <span className={`
-            absolute hidden group-hover:inline-block bg-blue-600 font-kang-invasion text-white text-sm px-2 py-1 whitespace-nowrap rounded
-            ${ props.color === 'blue' ? "bg-blue-600" : "" }
+            absolute hidden group-hover:inline-block dark:bg-blue-600 bg-blue-800 font-kang-invasion text-white text-sm px-2 py-1 whitespace-nowrap rounded
+            ${ props.color === 'blue' ? "dark:bg-blue-600 bg-blue-800" : "" }
             ${ props.color === 'red' ? "bg-kang-red-900" : "" }
             ${ props.position === 'top'
             ? "left-1/2 -translate-x-1/2 bottom-[calc(100%+7px)]"
@@ -30,13 +30,13 @@ export const ToolTip = (props: IToolTip) => (
         <span className={`
             absolute hidden group-hover:inline-block border-[5.9px]
             ${props.position === 'top' && props.color === 'blue' ?
-            "left-1/2 -translate-x-1/2 border-l-transparent border-r-transparent border-b-0 border-t-blue-600 bottom-8"
+            "left-1/2 -translate-x-1/2 border-l-transparent border-r-transparent border-b-0 dark:border-t-blue-600 border-t-blue-800 bottom-8"
             : ""}
             ${props.position === 'top' && props.color === 'red' ?
             "left-1/2 -translate-x-1/2 border-l-transparent border-r-transparent border-b-0 border-t-kang-red-900 bottom-5 sm:bottom-8"
             : ""}
             ${props.position === 'bottom' && props.color === 'blue' ?
-            "left-1/2 -translate-x-1/2 border-l-transparent border-r-transparent border-t-0 border-b-blue-600 top-8"
+            "left-1/2 -translate-x-1/2 border-l-transparent border-r-transparent border-t-0 dark:border-b-blue-600 border-b-blue-800 top-8"
             : ""}
             ${props.position === 'bottom' && props.color === 'red' ?
             "left-1/2 -translate-x-1/2 border-l-transparent border-r-transparent border-t-0 border-b-kang-red-900 top-5 sm:top-8"

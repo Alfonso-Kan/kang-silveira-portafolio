@@ -21,6 +21,18 @@ export default function RootLayout({
         rel="icon"
         href="/images/favicon.png"
         />
+        <script dangerouslySetInnerHTML={{
+          __html: `
+            (function() {
+              try {
+                var theme = localStorage.getItem('theme');
+                if (theme === 'dark' || !theme) {
+                  document.documentElement.classList.add('dark');
+                }
+              } catch(e) {}
+            })();
+          `
+        }} />
       </head>
       <body className={inter.className}>{children}</body>
     </html>
