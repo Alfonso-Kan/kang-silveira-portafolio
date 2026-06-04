@@ -26,7 +26,6 @@ function MeshComponent({ mousePosition }: { mousePosition: { x: number; y: numbe
             } else {
                 camera.position.z = 3
             }
-            // Interpolate towards the target position for smooth movement
             targetPosition.current.x += (mousePosition.x * 2 - targetPosition.current.x) * 0.05;
             targetPosition.current.y += (mousePosition.y * 2 - targetPosition.current.y) * 0.05;
             mesh.current.position.x = targetPosition.current.x;
@@ -41,12 +40,15 @@ function MeshComponent({ mousePosition }: { mousePosition: { x: number; y: numbe
     );
 }
 
-export const Drone = () => {
-    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+export const Drone = ({ mousePosition: externalMousePosition }: { mousePosition?: { x: number; y: number } }) => {
+    const [internalMousePosition, setInternalMousePosition] = useState({ x: 0, y: 0 });
+
+    const mousePosition = externalMousePosition || internalMousePosition;
 
     const handleMouseMove = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+        if (externalMousePosition) return;
         const rect = event.currentTarget.getBoundingClientRect();
-        setMousePosition({
+        setInternalMousePosition({
             x: ((event.clientX - rect.left) / rect.width) * 2 - 1,
             y: -((event.clientY - rect.top) / rect.height) * 2 + 1,
         });
