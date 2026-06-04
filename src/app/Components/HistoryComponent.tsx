@@ -92,16 +92,16 @@ Desarrolle landing pages utilizando Next.js, React y Tailwind CSS, y construi co
           {companies.map((company, index) => (
             <div key={company.id} className={`relative flex flex-col md:flex-row items-start mb-16 md:mb-28 last:mb-0 ${index % 2 === 0 ? '' : 'md:flex-row-reverse'}`}>
               <div className={`w-full md:w-5/12 ${index % 2 === 0 ? 'md:text-right md:pr-12' : 'md:text-left md:pl-12'} pl-16 md:pl-0`}>
-                <div className="inline-block cursor-pointer" onClick={() => setActiveCompany(company.id)}>
+                <div className="cursor-pointer" onClick={() => setActiveCompany(company.id)}>
                   <div className="flex flex-col items-center">
                     <img
                       src={company.logo}
                       alt={company.name}
-                      className="w-28 h-20 md:w-36 md:h-24 rounded-xl object-cover border-[3px] border-kang-red-900 shadow-lg shadow-kang-red-900/30 mb-3"
+                      className="w-48 h-28 md:w-64 md:h-36 rounded-xl object-cover border-[3px] border-kang-red-900 shadow-lg shadow-kang-red-900/30 mb-4"
                     />
-                    <p className="text-lg md:text-xl font-kang-pixels dark:text-gray-300 text-gray-600">{company.date}</p>
-                    <h3 className="text-2xl md:text-3xl font-kang-invasion text-kang-red-900">{company.name}</h3>
-                    <p className="text-lg md:text-xl font-kang-pixels dark:text-white text-kang-gray">{company.position}</p>
+                    <p className="text-xl md:text-2xl font-kang-pixels dark:text-gray-300 text-gray-600">{company.date}</p>
+                    <h3 className="text-3xl md:text-4xl font-kang-invasion text-kang-red-900 text-center">{company.name}</h3>
+                    <p className="text-xl md:text-2xl font-kang-pixels dark:text-white text-kang-gray">{company.position}</p>
                   </div>
                 </div>
               </div>
@@ -117,17 +117,17 @@ Desarrolle landing pages utilizando Next.js, React y Tailwind CSS, y construi co
       {activeCompanyData && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4" onClick={() => setActiveCompany(null)}>
           <div className="bg-kang-white dark:bg-kang-gray rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl" onClick={e => e.stopPropagation()}>
-            <div className="flex items-start justify-between p-8 border-b border-gray-300 dark:border-gray-700">
-              <div className="flex items-center gap-5">
+            <div className="flex items-start justify-between p-12 border-b border-gray-300 dark:border-gray-700">
+              <div className="flex items-center gap-6">
                 <img
                   src={activeCompanyData.logo}
                   alt={activeCompanyData.name}
-                  className="w-28 h-20 rounded-xl object-cover border-2 border-kang-red-900"
+                  className="w-32 h-24 rounded-xl object-cover border-2 border-kang-red-900"
                 />
                 <div>
-                  <h2 className="text-3xl font-kang-invasion text-kang-red-900">{activeCompanyData.name}</h2>
-                  <p className="text-xl font-kang-pixels dark:text-white text-kang-gray">{activeCompanyData.position}</p>
-                  <p className="text-base font-kang-pixels dark:text-gray-400 text-gray-600">{activeCompanyData.date}</p>
+                  <h2 className="text-4xl font-kang-invasion text-kang-red-900">{activeCompanyData.name}</h2>
+                  <p className="text-3xl font-kang-pixels dark:text-white text-kang-gray">{activeCompanyData.position}</p>
+                  <p className="text-xl font-kang-pixels dark:text-gray-400 text-gray-600">{activeCompanyData.date}</p>
                 </div>
               </div>
               <button
@@ -138,8 +138,8 @@ Desarrolle landing pages utilizando Next.js, React y Tailwind CSS, y construi co
               </button>
             </div>
 
-            <div className="p-8">
-              <p className="text-lg md:text-xl font-kang-pixels dark:text-white text-kang-gray leading-relaxed whitespace-pre-line">
+            <div className="p-12">
+              <p className="text-2xl md:text-3xl font-kang-pixels dark:text-white text-kang-gray leading-relaxed whitespace-pre-line">
                 {activeCompanyData.description}
               </p>
 
